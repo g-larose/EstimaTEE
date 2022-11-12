@@ -1,4 +1,6 @@
 ﻿using EstimaTEE.Commands;
+using EstimaTEE.Enums;
+using EstimaTEE.Extensions;
 using EstimaTEE.Factories;
 using EstimaTEE.Interfaces;
 using System;
@@ -30,6 +32,7 @@ namespace EstimaTEE.ViewModels
             _navigator.CurrentViewModelChanged += OnCurrentViewModelChanged;
             _navigator.CurrentViewModel = new DashboardViewModel();
             NavigateCreateNewItemViewCommand = new NavigateCommand<CreateNewItemViewViewModel>(_navigator, () => new CreateNewItemViewViewModel(_navigator, _dbFactory));
+
         }
 
         private void OnCurrentViewModelChanged()

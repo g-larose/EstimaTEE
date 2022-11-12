@@ -11,13 +11,10 @@ namespace EstimaTEE.Extensions
     {
         public static string FromEnumToString(this Enum value)
         {
-            var str = value switch
-            {
-                Status.CREATED => "CREATED",
-                _ => "NULL",
-            };
-
-            return str;
+            //var enumDisplayValue = (value).ToString();
+            //return enumDisplayValue;
+            string enumDisplayValue = Enum.GetName(typeof(Status), value);
+            return enumDisplayValue;
         }
     }
 }
