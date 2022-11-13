@@ -6,6 +6,7 @@
              xmlns:local="clr-namespace:EstimaTEE.Views.UserControls"
              xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
+             xmlns:uc="clr-namespace:EstimaTEE.Views.UserControls"
              mc:Ignorable="d" 
              Height="490" Width="600">
     <Grid>
@@ -60,14 +61,22 @@
                  md:HintAssist.Hint="Item Price"
                  Foreground="{StaticResource PrimaryDarkBrush500}"
                  Text="{Binding Path=Item.Price}" />
-        <TextBox Grid.Row="5"
+        <ComboBox ItemsSource="{Binding ItemsColor}"
                  Grid.Column="1"
-                 Height="40"
+                 Grid.Row="5"
                  Width="300"
-                 Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
-                 md:HintAssist.Hint="Item Color"
+                 Style="{StaticResource MaterialDesignFloatingHintComboBox}"
                  Foreground="{StaticResource PrimaryDarkBrush500}"
-                 Text="{Binding Path=Item.Attributes.Color}" />
+                 md:HintAssist.Hint="Choose Color"
+                 Padding="4">
+
+            <ComboBox.ItemTemplate >
+                <DataTemplate>
+                    <uc:SingleRowItemColor />
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+           
+        </ComboBox>
         <TextBox Grid.Row="6"
                  Grid.Column="1"
                  Height="40"

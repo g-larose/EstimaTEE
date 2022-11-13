@@ -11,9 +11,7 @@ namespace EstimaTEE.Extensions
     {
         public static string FromEnumToString(this Enum value)
         {
-            //var enumDisplayValue = (value).ToString();
-            //return enumDisplayValue;
-            string enumDisplayValue = Enum.GetName(typeof(Status), value);
+            string? enumDisplayValue = Enum.GetName(typeof(Status), value) ?? "NA";
             return enumDisplayValue;
         }
     }
